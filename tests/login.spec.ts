@@ -4,11 +4,16 @@ import { LoginPage } from '../pages/LoginPage';
 import { MyAccountPage } from '../pages/MyAccountPage';
 import { HomePage } from '../pages/HomePage';
 
-test('login test', async({page})=>{
+test('login & add to cart test', async({page})=>{
     const userData=getUserData();
     const homepage=new HomePage(page);
     await homepage.goto();
     const loginPage=await homepage.gotoLoginPage();
     const MyAccountPage=await loginPage.doLoginWith(userData.emailAddress, userData.password);
     await expect(MyAccountPage.userAccountLocator).toBeVisible();
+    const tshirtsPage=await MyAccountPage.clickOnTshirtsLink();
+    const productPage=await tshirtsPage.openFirstProduct();
+    const cartPage=await productPage.clickOnAddToCartButton();
+    const orderSummarypage=await cartPage.clickOnCheckout();
+    await expect(orderSummarypage.summaryTitleLocator).toBeVisible();
 })
