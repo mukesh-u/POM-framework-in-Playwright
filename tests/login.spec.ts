@@ -16,5 +16,4 @@ test('login & add to cart test', async({page})=>{
     const cartPage=await productPage.clickOnAddToCartButton();
     const orderSummarypage=await cartPage.clickOnCheckout();
     await expect(orderSummarypage.summaryTitleLocator).toBeVisible();
-    console.log('Testing cron job functionality')
 })
