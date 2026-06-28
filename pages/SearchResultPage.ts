@@ -1,12 +1,18 @@
-import { Locator, Page } from "@playwright/test";
+import { Page } from "@playwright/test";
+import { ProductPage } from "./ProductPage";
 
 export class SearchResultPage{
 
-    page: Page;
-    searchResultHeading: Locator;
+    readonly page: Page;
 
     constructor(page:Page){
         this.page=page;
-        this.searchResultHeading=page.getByRole('heading');
     }
+
+    async openFirstProduct(productName: string): Promise<ProductPage> {
+        await this.page.locator('.product-name').filter({ hasText: productName }).first().click();
+        const productPage=new ProductPage(this.page);
+        return productPage;
+    }
+
 }

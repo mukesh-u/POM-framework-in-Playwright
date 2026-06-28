@@ -2,8 +2,9 @@ import { Page, Locator } from "@playwright/test";
 import { CartPage } from "./CartPage";
 
 export class ProductPage{
-    page: Page;
-    addToCartButtonLocator: Locator;
+    readonly page: Page;
+    readonly addToCartButtonLocator: Locator;
+    
 
     constructor(page: Page){
         this.page=page;

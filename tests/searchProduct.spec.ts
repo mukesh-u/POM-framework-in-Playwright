@@ -9,10 +9,8 @@ let myAccountPage: MyAccountPage;
 test.beforeEach(async ({page})=>{
     const user=getUserData();
     const homepage=new HomePage(page);
-
     await homepage.goto();
     const loginPage=await homepage.gotoLoginPage();
-
     myAccountPage=await loginPage.doLoginWith(user.emailAddress, user.password);
 
 });
@@ -21,8 +19,6 @@ for (const product of searchProducts){
     test(`Search product functionality : ${product}`, async ({page})=>{
 
         const searchResultPage=await myAccountPage.searchForProduct(product)
-        // await page.waitForTimeout(3000);
-        console.log(await page.url());
         await expect(page).toHaveURL(/search_query=/);
         await expect(page.locator('#search_query_top')).toHaveValue(product);
     });
