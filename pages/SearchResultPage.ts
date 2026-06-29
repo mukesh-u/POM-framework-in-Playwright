@@ -1,10 +1,10 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { ProductPage } from "./ProductPage";
 
 export class SearchResultPage{
 
     readonly page: Page;
-
+   
     constructor(page:Page){
         this.page=page;
     }
