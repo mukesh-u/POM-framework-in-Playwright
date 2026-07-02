@@ -2,10 +2,10 @@ import { Page, Locator } from "@playwright/test";
 import { MyAccountPage } from "./MyAccountPage";
 
  export class LoginPage {
-    page: Page;
-    emailInputLocator: Locator;
-    passwordInputLocator: Locator;
-    signInButtonLocator: Locator;
+    readonly page: Page;
+    readonly emailInputLocator: Locator;
+    readonly passwordInputLocator: Locator;
+    readonly signInButtonLocator: Locator;
 
     constructor(page:Page){
         this.page=page

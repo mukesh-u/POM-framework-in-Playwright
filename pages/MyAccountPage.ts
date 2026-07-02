@@ -4,12 +4,12 @@ import { ProductPage } from './ProductPage';
 import { SearchResultPage } from './SearchResultPage';
 
 export class MyAccountPage{
-    page: Page;
-    userAccountLocator: Locator;
-    tshirtLinkLocator: Locator;
-    searchInputLocator: Locator;
-    searchButtonLocator: Locator;
-    searchResultHeading: Locator;
+    readonly page: Page;
+    readonly userAccountLocator: Locator;
+    readonly tshirtLinkLocator: Locator;
+    readonly searchInputLocator: Locator;
+    readonly searchButtonLocator: Locator;
+    readonly searchResultHeading: Locator;
 
 
     constructor(page:Page){

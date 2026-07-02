@@ -2,8 +2,8 @@ import { Page, Locator } from "@playwright/test";
 import { LoginPage } from "./LoginPage";
 
 export class HomePage{
-    page:Page;
-    signInLinkLocator:Locator;
+    readonly page:Page;
+    readonly signInLinkLocator:Locator;
 
     constructor(page:Page){
         this.page=page;

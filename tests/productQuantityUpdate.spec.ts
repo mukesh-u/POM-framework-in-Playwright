@@ -1,22 +1,21 @@
-import {test,expect} from '@playwright/test'
+import {test,expect} from '../fixtures/testFixture'
 import { getUserData } from '../data/user'
 import { HomePage } from '../pages/HomePage';
 import { MyAccountPage } from '../pages/MyAccountPage';
 import { addToCartProducts } from '../data/addToCartData';
-import { OrderSummaryPage } from '../pages/OrderSummaryPage';
 
-let myAccountPage:MyAccountPage;
+// let myAccountPage:MyAccountPage;
 
-test.beforeEach(async ({page})=>{
-    const user=getUserData();
-    const homePage=new HomePage(page);
-    await homePage.goto();
-    const loginPage=await homePage.gotoLoginPage();
-    myAccountPage=await loginPage.doLoginWith(user.emailAddress, user.password);
-});
+// test.beforeEach(async ({page})=>{
+//     const user=getUserData();
+//     const homePage=new HomePage(page);
+//     await homePage.goto();
+//     const loginPage=await homePage.gotoLoginPage();
+//     myAccountPage=await loginPage.doLoginWith(user.emailAddress, user.password);
+// });
 
 for (const product of addToCartProducts){
-    test(`Update quantity for ${product}`, async()=>{
+    test(`Update quantity for ${product}`, async({myAccountPage})=>{
         const searchResultPage=await myAccountPage.searchForProduct(product);
         const productPage=await searchResultPage.openFirstProduct(product);
         const cartPage=await productPage.clickOnAddToCartButton();
