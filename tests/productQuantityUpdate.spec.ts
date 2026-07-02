@@ -28,13 +28,13 @@ for (const product of addToCartProducts){
         console.log(`Initial price is : ${initialPrice}`)
 
         await orderSummaryPage.increaseQuantity();
-        await orderSummaryPage.page.waitForTimeout(3000);
+        await orderSummaryPage.page.waitForTimeout(1000);
 
         const updatedQuantity=await orderSummaryPage.getTotalQuantity();
-        console.log(`Updated quantity is : ${updatedQuantity}`)
+        // console.log(`Updated quantity is : ${updatedQuantity}`)
 
         const updatedPrice=await orderSummaryPage.getTotalPrice();
-        console.log(`Updated price is : ${updatedPrice}`)
+        // console.log(`Updated price is : ${updatedPrice}`)
 
         await expect(updatedPrice).toBeGreaterThan(initialPrice);
         await expect(updatedQuantity).toBeGreaterThan(initialQuantity);
