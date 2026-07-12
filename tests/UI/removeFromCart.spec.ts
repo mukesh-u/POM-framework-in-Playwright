@@ -1,8 +1,8 @@
-import {test,expect} from '../fixtures/testFixture'
-import { getUserData } from '../data/user'
-import { HomePage } from '../pages/HomePage';
-import { addToCartProducts } from '../data/addToCartData';
-import { MyAccountPage } from '../pages/MyAccountPage';
+import {test,expect} from '../../fixtures/testFixture'
+import { getUserData } from '../../data/user'
+import { HomePage } from '../../pages/HomePage';
+import { addToCartProducts } from '../../data/addToCartData';
+import { MyAccountPage } from '../../pages/MyAccountPage';
 
 // let myAccountPage:MyAccountPage;
 

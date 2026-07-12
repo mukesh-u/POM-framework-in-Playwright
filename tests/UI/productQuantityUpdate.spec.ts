@@ -1,8 +1,8 @@
-import {test,expect} from '../fixtures/testFixture'
-import { getUserData } from '../data/user'
-import { HomePage } from '../pages/HomePage';
-import { MyAccountPage } from '../pages/MyAccountPage';
-import { addToCartProducts } from '../data/addToCartData';
+import {test,expect} from '../../fixtures/testFixture'
+import { getUserData } from '../../data/user'
+import { HomePage } from '../../pages/HomePage';
+import { MyAccountPage } from '../../pages/MyAccountPage';
+import { addToCartProducts } from '../../data/addToCartData';
 
 // let myAccountPage:MyAccountPage;
 
@@ -36,7 +36,7 @@ for (const product of addToCartProducts){
         const updatedPrice=await orderSummaryPage.getTotalPrice();
         // console.log(`Updated price is : ${updatedPrice}`)
 
-        await expect(updatedPrice).toBeGreaterThan(initialPrice);
-        await expect(updatedQuantity).toBeGreaterThan(initialQuantity);
+        expect(updatedPrice).toBeGreaterThan(initialPrice);
+        expect(updatedQuantity).toBeGreaterThan(initialQuantity);
     })
 }
